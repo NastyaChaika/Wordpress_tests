@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
+<suite name="Test Suite">
+  <parameter name="LOGIN"  value="admin" />
+  <parameter name="PASSWORD"  value="123qwe" />
+  <parameter name="START_URL"  value="http://localhost:8888/wordpress/wp-login.php/" />
+  <parameter name="FINISH_URL"  value="http://localhost:8888/wordpress/wp-admin/" />
+  <test name="Smoke 1 = Publish a new Post">
+    <parameter name="TITLE"  value="New Title" />
+    <parameter name="TEXT"  value="New Text" />
+    <classes>
+      <class name="tests.PostPageTest"/>
+    </classes>
+  </test>
+  <test name="Smoke 2 = Delete a published Post">
+    <parameter name="TITLE"  value="Another new test webpage" />
+    <parameter name="TEXT"  value="Some text inside a new webpage" />
+    <classes>
+      <class name="tests.DeletePostedPageTest"/>
+    </classes>
+  </test>
+  <test name="Smoke 3 = Delete a published Post">
+    <parameter name="TITLE"  value="Стихи Маяковского" />
+    <classes>
+      <class name="tests.PostPageWithTextFromFileTest"/>
+    </classes>
+  </test><!-- Wordpress_tests -->
+</suite> <!-- Test Suite -->
