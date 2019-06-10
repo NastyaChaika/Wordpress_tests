@@ -2,17 +2,14 @@ package pages;
 
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
-import org.openqa.selenium.WebElement;
-import org.openqa.selenium.support.FindBy;
-import org.openqa.selenium.support.PageFactory;
 
 public class LoginPage extends BasePage {
 
     // Elements of the Login page
-    By txtLogin = By.id("user_login");
-    By txtPassword = By.id("user_pass");
-    By chkbxRememberMe = By.id("rememberme");
-    By btnLogin = By.id("wp-submit");
+    private By txtLogin = By.id("user_login");
+    private By txtPassword = By.id("user_pass");
+    private By chkbxRememberMe = By.id("rememberme");
+    private By btnLogin = By.id("wp-submit");
 
     public LoginPage (WebDriver driver) {
         super(driver);

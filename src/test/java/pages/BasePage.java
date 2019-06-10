@@ -10,12 +10,12 @@ import java.net.MalformedURLException;
 import java.net.URL;
 
 public class BasePage {
-    protected WebDriver driver;
-    protected WebDriverWait wait;
+    public WebDriver driver;
+    public WebDriverWait wait;
 
     public BasePage (WebDriver driver) {
         this.driver = driver;
-        wait = new WebDriverWait(driver, 15);
+        wait = new WebDriverWait(this.driver, 10);
     }
 
     public void waitForElement (By elementBy) {
