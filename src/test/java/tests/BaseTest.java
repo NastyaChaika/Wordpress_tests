@@ -2,26 +2,22 @@ package tests;
 
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
-import org.testng.annotations.AfterClass;
-import org.testng.annotations.BeforeClass;
-import org.testng.annotations.Parameters;
-
-import java.util.concurrent.TimeUnit;
+import org.testng.annotations.*;
 
 public class BaseTest {
-    public WebDriver driver;
+    public static WebDriver driver;
+    public static String postUrl;
 
-    @BeforeClass
+    @BeforeTest
     @Parameters("START_URL")
     public void setUp(String startUrl) {
-        System.setProperty("webdriver.chrome.driver", "src/test/java/resources/chromedriver");
+        System.setProperty("webdriver.chrome.driver", "src/test/resources/chromedriver");
         driver = new ChromeDriver();
-        driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
         driver.manage().window().maximize();
         driver.navigate().to(startUrl);
     }
 
-    @AfterClass
+    @AfterTest
     public void tearDown() {
         if (driver != null) {
             driver.quit();

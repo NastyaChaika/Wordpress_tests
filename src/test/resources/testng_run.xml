@@ -5,24 +5,33 @@
   <parameter name="PASSWORD"  value="123qwe" />
   <parameter name="START_URL"  value="http://localhost:8888/wordpress/wp-login.php/" />
   <parameter name="FINISH_URL"  value="http://localhost:8888/wordpress/wp-admin/" />
-  <test name="Smoke 1 = Publish a new Post">
+
+  <listeners>
+    <listener class-name="helpers.TestListener"/>
+  </listeners>
+
+  <test name="Test 1 = Publish a new Post">
     <parameter name="TITLE"  value="New Title" />
     <parameter name="TEXT"  value="New Text" />
     <classes>
-      <class name="tests.PostPageTest"/>
+      <class name="tests.LoginTest"/>
+      <class name="tests.CreatePostTest"/>
     </classes>
   </test>
-  <test name="Smoke 2 = Delete a published Post">
+  <test name="Test 2 = Delete a published Post">
     <parameter name="TITLE"  value="Another new test webpage" />
     <parameter name="TEXT"  value="Some text inside a new webpage" />
     <classes>
-      <class name="tests.DeletePostedPageTest"/>
+      <class name="tests.LoginTest"/>
+      <class name="tests.CreatePostTest"/>
+      <class name="tests.DeletePostTest"/>
     </classes>
   </test>
-  <test name="Smoke 3 = Delete a published Post">
+  <test name="Test 3 = Publish a new Post with some text from a file">
     <parameter name="TITLE"  value="Стихи Маяковского" />
     <classes>
-      <class name="tests.PostPageWithTextFromFileTest"/>
+      <class name="tests.LoginTest"/>
+      <class name="tests.CreatePostWithTextFromFileTest"/>
     </classes>
-  </test><!-- Wordpress_tests -->
-</suite> <!-- Test Suite -->
+  </test>
+</suite>
