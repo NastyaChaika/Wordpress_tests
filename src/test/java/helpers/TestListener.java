@@ -32,12 +32,16 @@ public class TestListener implements ITestListener {
         SimpleDateFormat sdf = new SimpleDateFormat("MM_dd_yyyy_HH:mm:ss");
         Date resultdate = new Date(System.currentTimeMillis());
         String screenshotName;
-        switch (result.getStatus()) {
-            case (1): screenshotName = "scrn_" + result.getName() + "_success_" + sdf.format(resultdate) + ".png";
-            case (2): screenshotName = "scrn_" + result.getName() + "_failure_" + sdf.format(resultdate) + ".png";
-            case (3): screenshotName = "scrn_" + result.getName() + "_skip_" + sdf.format(resultdate) + ".png";
-            default: screenshotName = "scrn_" + result.getName() + "_N/A_" + sdf.format(resultdate) + ".png";
-        }
+        if (result.getStatus() == ITestResult.FAILURE)
+            screenshotName = "scrn_" + result.getName() + "_failure_" + sdf.format(resultdate) + ".png";
+        else
+            if (result.getStatus() == ITestResult.SUCCESS)
+                screenshotName = "scrn_" + result.getName() + "_success_" + sdf.format(resultdate) + ".png";
+            else
+                if (result.getStatus() == ITestResult.SKIP)
+                    screenshotName = "scrn_" + result.getName() + "_skip_" + sdf.format(resultdate) + ".png";
+                else
+                    screenshotName = "scrn_" + result.getName() + "_NA_" + sdf.format(resultdate) + ".png";
         String path = "./target/screenshots/" + screenshotName;
         try {
             FileUtils.copyFile(scrn, new File(path));

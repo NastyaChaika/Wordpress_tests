@@ -11,12 +11,12 @@ import java.nio.charset.StandardCharsets;
 public class EditPage extends BasePage {
 
     // Elements of the Edit Page
-    private By txtPageTitle = By.id("post-title-0");
-    private By fldPageBody = By.xpath("//*[@class='editor-default-block-appender__content block-editor-default-block-appender__content']");
-    private By fldInputBodyText = By.xpath("//*[@class='block-editor-rich-text__editable editor-rich-text__editable wp-block-paragraph'][contains(@aria-label,'или нажмите прямой слэш (/) для выбора блока')]");
-    private By btnPublish = By.xpath("//*[@class='components-button editor-post-publish-panel__toggle is-button is-primary']");
-    private By btnPublishConfirm = By.xpath("//*[@class='components-button editor-post-publish-button is-button is-default is-primary is-large']");
-    private By btnShowPost = By.xpath("//a[contains(text(),\'Просмотреть запись\')]");
+    By txtPageTitle = By.id("post-title-0");
+    By fldPageBody = By.xpath("//*[@class='editor-default-block-appender__content block-editor-default-block-appender__content']");
+    By fldInputBodyText = By.xpath("//*[@class='block-editor-rich-text__editable editor-rich-text__editable wp-block-paragraph'][contains(@aria-label,'или нажмите прямой слэш (/) для выбора блока')]");
+    By btnPublish = By.xpath("//*[@class='components-button editor-post-publish-panel__toggle is-button is-primary']");
+    By btnPublishConfirm = By.xpath("//*[@class='components-button editor-post-publish-button is-button is-default is-primary is-large']");
+    By btnShowPost = By.xpath("//a[contains(text(),\'Просмотреть запись\')]");
 
     public EditPage (WebDriver driver) {
         super(driver);

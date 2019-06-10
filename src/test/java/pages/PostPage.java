@@ -6,8 +6,8 @@ import org.openqa.selenium.WebDriver;
 public class PostPage extends BasePage {
 
     // Elements of the Post page
-    private By fldPageTitle = By.xpath("//*[@class='entry-title']");
-    private By fldPageText = By.xpath("//*[@class='entry-content']");
+    By fldPageTitle = By.xpath("//*[@class='entry-title']");
+    By fldPageText = By.xpath("//*[@class='entry-content']");
 
     public PostPage (WebDriver driver) {
         super(driver);

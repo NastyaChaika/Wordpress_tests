@@ -6,10 +6,10 @@ import org.openqa.selenium.WebDriver;
 public class LoginPage extends BasePage {
 
     // Elements of the Login page
-    private By txtLogin = By.id("user_login");
-    private By txtPassword = By.id("user_pass");
-    private By chkbxRememberMe = By.id("rememberme");
-    private By btnLogin = By.id("wp-submit");
+    By txtLogin = By.id("user_login");
+    By txtPassword = By.id("user_pass");
+    By chkbxRememberMe = By.id("rememberme");
+    By btnLogin = By.id("wp-submit");
 
     public LoginPage (WebDriver driver) {
         super(driver);
