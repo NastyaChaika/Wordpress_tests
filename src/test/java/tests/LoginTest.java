@@ -1,7 +1,6 @@
 package tests;
 
 import org.openqa.selenium.NoSuchElementException;
-import org.openqa.selenium.support.PageFactory;
 import org.testng.annotations.Parameters;
 import org.testng.annotations.Test;
 import pages.LoginPage;

@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
+<suite name="Test Suite">
+  <parameter name="LOGIN"  value="admin" />
+  <parameter name="PASSWORD"  value="123qwe" />
+  <parameter name="START_URL"  value="http://localhost:8888/wordpress/wp-login.php/" />
+  <parameter name="FINISH_URL"  value="http://localhost:8888/wordpress/wp-admin/" />
+  <parameter name="NUMBEROFCLICKS"  value="10" />
+  <parameter name="TIME"  value="60" />
+
+  <test name="Test 1 = Monkey Test with the number of clicks">
+    <classes>
+      <class name="tests.LoginTest"/>
+      <class name="tests.MonkeyClicksTest"/>
+    </classes>
+  </test>
+  <test name="Test 2 = Monkey Test with time">
+    <classes>
+      <class name="tests.LoginTest"/>
+      <class name="tests.MonkeyTimeTest"/>
+    </classes>
+  </test>
+</suite>

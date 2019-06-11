@@ -2,6 +2,7 @@ package pages;
 
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 import org.testng.Assert;
@@ -22,9 +23,19 @@ public class BasePage {
         wait.until(ExpectedConditions.visibilityOfAllElementsLocatedBy(elementBy));
     }
 
+    public void waitForElement (WebElement element) {
+        wait.until(ExpectedConditions.visibilityOfAllElements(element));
+        wait.until(ExpectedConditions.elementToBeClickable(element));
+    }
+
     public void click (By elementBy) {
         waitForElement(elementBy);
         driver.findElement(elementBy).click();
+    }
+
+    public void click (WebElement element) {
+ //       waitForElement(element);
+        element.click();
     }
 
     public void inputText (By elementBy, String text) {
@@ -38,11 +49,6 @@ public class BasePage {
         driver.findElement(elementBy).sendKeys(text);
     }
 
-    public void assertEquals_n (By elementBy, String ExpectedText) {
-        waitForElement(elementBy);
-        Assert.assertEquals(readText(elementBy), ExpectedText);
-    }
-
     public String readText (By elementBy) {
         waitForElement(elementBy);
         return driver.findElement(elementBy).getText();
@@ -50,6 +56,14 @@ public class BasePage {
 
     public boolean isDisplayed (By elementBy) {
         return driver.findElement(elementBy).isDisplayed();
+    }
+
+    public boolean isDisplayed (WebElement element) {
+        return element.isDisplayed();
+    }
+
+    public boolean isEnabled (WebElement element) {
+        return element.isEnabled();
     }
 
     public String getText (By elementBy) {
